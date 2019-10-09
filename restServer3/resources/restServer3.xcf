@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- This is a sample configuration of deploying the web service with GAS -->
+<APPLICATION Parent="ws.default"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="http://www.4js.com/ns/gas/3.20/cfextws.xsd">
+  <EXECUTION>
+    <!-- Web Service server configuration -->
+    <ENVIRONMENT_VARIABLE Id="GWS_BASEPATH">officestore</ENVIRONMENT_VARIABLE>
+    <ENVIRONMENT_VARIABLE Id="GWS_CONNECTTIMEOUT">25</ENVIRONMENT_VARIABLE>
+    <ENVIRONMENT_VARIABLE Id="GWS_RWTIMEOUT">60</ENVIRONMENT_VARIABLE>
+    <ENVIRONMENT_VARIABLE Id="GWS_SERVERTIMEOUT">120</ENVIRONMENT_VARIABLE>
+    <ENVIRONMENT_VARIABLE Id="GWS_MODULE">officestore</ENVIRONMENT_VARIABLE>
+    <ENVIRONMENT_VARIABLE Id="FGLDBNAME">officestore</ENVIRONMENT_VARIABLE>
+    <!-- Custom deployment configuration -->
+    <ENVIRONMENT_VARIABLE Id="MYSQL_HOME">/usr/lib/x86_64-linux-gnu</ENVIRONMENT_VARIABLE>
+    <ENVIRONMENT_VARIABLE Id="FGLLDPATH">/usr/lib/x86_64-linux-gnu:$(res.fglldpath)</ENVIRONMENT_VARIABLE>
+    <ENVIRONMENT_VARIABLE Id="IMAGEPATH">/opt/genero/Pictures/officestore/database/</ENVIRONMENT_VARIABLE>
+    <!-- Debug/logging configuration -->
+    <ENVIRONMENT_VARIABLE Id="APPDEBUG">2</ENVIRONMENT_VARIABLE>
+    <ENVIRONMENT_VARIABLE Id="FGLWSDEBUG">0</ENVIRONMENT_VARIABLE>
+    <!-- GAS configuration -->
+    <PATH>$(res.deployment.path)/bin</PATH>
+    <MODULE>restServer3</MODULE>
+    <ACCESS_CONTROL>
+        <ALLOW_FROM>$(res.access.control)</ALLOW_FROM>
+    </ACCESS_CONTROL>
+    <POOL>
+        <START>0</START>
+        <MIN_AVAILABLE>0</MIN_AVAILABLE>
+        <MAX_AVAILABLE>5</MAX_AVAILABLE>
+    </POOL>
+  </EXECUTION>
+</APPLICATION>

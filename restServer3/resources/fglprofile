@@ -1,0 +1,3 @@
+# This config is only used with standalone testing
+dbi.database.officestore.source   = "../database/officestore.db"
+dbi.database.officestore.driver   = "dbmsqt"
