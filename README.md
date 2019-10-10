@@ -45,11 +45,11 @@ Additionally, you can:
 
     1) Retrieve the REST OpenAPI documentation can be retrieved using:
         
-    curl -X GET -i http://localhost:8090/ws/r/officestore?openapi.json
+        curl -X GET -i http://localhost:8090/ws/r/officestore?openapi.json
     
     2) Generate client API interface code from the saved OpenAPI using:
     
-    fglrestful -o ws_client officestore.json
+        fglrestful -o ws_client officestore.json
     
 A demo client application, restClient3, is provided to illustrate how to use the generated client API code.  Simple start the server in standalone mode(w/o GAS); then, execute the restClient3 application.
 
