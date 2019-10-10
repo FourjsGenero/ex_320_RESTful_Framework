@@ -42,6 +42,7 @@ Example curl with GAS Deployment
     
     
 Additionally, you can:
+
     1) Retrieve the REST OpenAPI documentation can be retrieved using:
         
     curl -X GET -i http://localhost:8090/ws/r/officestore?openapi.json
