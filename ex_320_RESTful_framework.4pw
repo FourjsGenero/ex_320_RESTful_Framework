@@ -71,8 +71,8 @@
     </Library>
   </Group>
   <Group id="285496687" label="domain" language="Genero">
-    <Library binaryName="dom" dependencies="1986,320085717" id="93056229" label="dom">
-      <File filePath="domain/officestore/officestore.4gl"/>
+    <Library binaryName="dom" dependencies="1986,320085717,30777294,294572712,434103810" id="93056229" label="dom">
+      <File excludeFromLink="true" filePath="domain/officestore/officestore.4gl"/>
     </Library>
   </Group>
   <Group id="115369982" label="foundation" language="Genero">
@@ -95,10 +95,18 @@
     <Package binaryName="ws_restServer3" dependencies="457744524,80943291" id="-280246116" label="ws_restServer3" platform="Genero Application Server">
       <DynamicProperty name="packageId" value="ws_Stores"/>
       <DynamicProperty name="packageLabel" value="ws_Stores"/>
-      <Directory destinationDirectory="$(RootDir)/bin" excludedFiles="Test.42r" includedFiles="*.42?" label="Binaries" sourceDirectory="$(ProjectDir)/bin"/>
+      <Directory destinationDirectory="$(RootDir)/bin" excludedFiles="Test.42r,gdcClient.42m,restClient*.42?,ws_rest*.42?" includedFiles="*.42?" label="Binaries" sourceDirectory="$(ProjectDir)/bin"/>
       <Directory destinationDirectory="$(RootDir)/database" includedFiles="*.db" label="DB" sourceDirectory="$(ProjectDir)/database"/>
-      <Directory includedFiles="fglprofile,*.xcf" label="Resources" sourceDirectory="$(ProjectDir)/restServer2/resources"/>
+      <Directory includedFiles="fglprofile,*.xcf" label="Resources" sourceDirectory="$(ProjectDir)/restServer3/resources"/>
     </Package>
+  </Group>
+  <Group id="554828937" label="restClient3" language="Genero">
+    <Application binaryName="restClient3" dependencies="21260835" id="399720138" label="restClient3">
+      <File filePath="restClient3/gdcClient.4gl"/>
+    </Application>
+    <Library binaryName="restCliLib320" id="21260835" label="restCliLib320">
+      <File excludeFromLink="true" filePath="restClient3/ws_restCliLib320.4gl"/>
+    </Library>
   </Group>
   <Group environment="filelist:FGLPROFILE=$(ProjectDir)/restServer3/resources/fglprofile;$(FGLPROFILE)" id="88077168" label="restServer3" language="Genero">
     <Library binaryName="config" id="482635652" label="config">
@@ -108,7 +116,7 @@
       <File filePath="restServer3/resources/MANIFEST"/>
       <File filePath="restServer3/resources/restServer3.xcf"/>
     </Library>
-    <Application binaryName="restServer3" dependencies="14000,30777294,434103810,85067868,320085717" environment="value:FGLAPPSERVER=8090,value:GWS_AUTHENTICATE=0,value:FGLDBNAME=officestore,value:GWS_BASEPATH=officestore,value:GWS_SERVERTIMEOUT=120,value:GWS_MODULE=officestore,value:APPDEBUG=2,value:GWS_MAXLENGTH=-1,value:GWS_RWTIMEOUT=60,value:GWS_CONNECTTIMEOUT=25" id="457744524" label="restServer3">
+    <Application binaryName="restServer3" dependencies="14000,30777294,434103810,85067868,320085717,93056229" environment="value:FGLAPPSERVER=8090,value:GWS_AUTHENTICATE=0,value:FGLDBNAME=officestore,value:GWS_BASEPATH=officestore,value:GWS_SERVERTIMEOUT=120,value:GWS_MODULE=officestore,value:APPDEBUG=2,value:GWS_MAXLENGTH=-1,value:GWS_RWTIMEOUT=60,value:GWS_CONNECTTIMEOUT=25" id="457744524" label="restServer3">
       <File filePath="restServer3/restServer3.4gl"/>
     </Application>
   </Group>
