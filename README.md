@@ -51,5 +51,5 @@ Additionally, you can:
     
         fglrestful -o ws_client officestore.json
     
-A demo client application, restClient3, is provided to illustrate how to use the generated client API code.  Simple start the server in standalone mode(w/o GAS); then, execute the restClient3 application.
+A demo client application, restClient3, is provided to illustrate how to use the generated client API code.  Simply start the server in standalone mode(w/o GAS); then, execute the restClient3 application.
 
