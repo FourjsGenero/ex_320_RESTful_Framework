@@ -1,0 +1,48 @@
+# Genero compiler output
+*.42?
+
+# Genero Studio generated  project files
+*.4pwvs
+*.4pwdb
+*.4pwcfg
+
+# Genero Studio generated database management files
+*_dbx*.*
+
+# Presuming all pdf files are generated from document source
+*.pdf
+
+# Genero generated schemas
+*.sch
+
+# GRE report definitions
+*.rdd
+
+# Java pcode files
+*.class
+
+# Temporary and log files
+*.log
+*.out
+*.tmp
+*.err
+*.bak
+
+# Packages
+*.tgz
+*.bz2
+*.gz
+*.rpm
+*.info
+*.apk
+*.gar
+*.zip
+
+# Other
+.directory
+bin
+bin310
+bin320
+distbin
+build
+*.build

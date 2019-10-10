@@ -1,0 +1,5 @@
+--fo-column-limit=132
+--fo-indent-width=4
+--fo-continuation-indent-width=4
+--fo-label-indent=1
+--fo-lowercase-keywords=1
