@@ -21,21 +21,34 @@ C.R.U.D. Testing sequence
 
   Create:
     
-    curl -X POST -i http://localhost:8090/ws/r/rest/countries --data '[{"code":"FJS","codedesc":"FourJs WWDC19"}]'
+    curl -X POST -H 'Content-Type: application/json' -i http://localhost:8090/ws/r/officestore/v1/countries --data '{"code":"FJS","codedesc":"FourJs Development Tools"}'
     
   Read:
     
-    curl -X GET -i http://localhost:8090/ws/r/rest/countries/FJS
-    curl -X GET -i 'http://localhost:8090/ws/r/rest/countries?id=FJS'
+    curl -X GET -i http://localhost:8090/ws/r/officestore/v1/countries/FJS
+    curl -X GET -i http://localhost:8090/ws/r/officestore/v1/countries?id=FJS
     
   Update:
     
-    curl -X PUT -i http://localhost:8090/ws/r/rest/countries --data '[{"code":"FJS","codedesc":"xxx Delete Me xxx"}]'
+    curl -X PUT -H 'Content-Type: application/json' -i http://localhost:8090/ws/r/officestore/v1/countries/FJS --data '{"code":"FJS","codedesc":"####Delete Me####"}'
     
   Delete:
     
-    curl -X DELETE -i 'http://localhost:8090/ws/r/rest/countries?id=FJS'
+    curl -X DELETE -H 'Content-Type;' -i http://localhost:8090/ws/r/officestore/v1/countries/FJS
 
 Example curl with GAS Deployment
     
-    curl -X GET -i http://<myserver>/<gas>/ws/r/restServer2/countries
+    http://dogbert/genero/ws/r/restServer3/officestore/v1/countries/FJS
+    
+    
+Additionally, you can:
+    1) Retrieve the REST OpenAPI documentation can be retrieved using:
+        
+    curl -X GET -i http://localhost:8090/ws/r/officestore?openapi.json
+    
+    2) Generate client API interface code from the saved OpenAPI using:
+    
+    fglrestful -o ws_client officestore.json
+    
+A demo client application, restClient3, is provided to illustrate how to use the generated client API code.  Simple start the server in standalone mode(w/o GAS); then, execute the restClient3 application.
+
