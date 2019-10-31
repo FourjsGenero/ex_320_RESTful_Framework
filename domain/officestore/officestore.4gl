@@ -95,10 +95,15 @@ private constant SUP_SELECTSQL = "SELECT * FROM supplier"
 #
 public define serviceInfo record attribute(WSInfo)
     title string,
-    version string,
-    contact string
-end record = (title: "Officestore RESTful Services.", version: "3.0", contact: "helpdesk-us@4js.com")
-
+    description string,
+    termOfService string,
+    contact record
+        name string,
+        url string,
+        email string
+    end record,
+    version string
+end record = (title: "Officestore RESTful Services.", version: "3.0", contact:(email: "helpdesk-us@4js.com"))
 ################################################################################
 #+ Method: getCategoryRecords
 #+
@@ -296,7 +301,7 @@ public function getCountryRecordsV2(
         #WSScope = "officestore.user",
         WSThrows = "404:Not Found,500:Internal Server Error")
     returns string
-    
+
     define
         i integer = 1,
         sqlStatement string,
@@ -354,7 +359,7 @@ public function getCountryRecordsV2(
 
     close countryCursV2
     free countryCursV2
-    
+
     return util.JSON.stringify(wrappedResponse)
 end function
 
@@ -403,8 +408,8 @@ end function
 #+ @countryType NONE
 #+
 
-public function insertCountry( 
-    newRecord countryType )
+public function insertCountry(
+    newRecord countryType)
     attributes(WSPost,
         WSMedia = "application/json",
         WSPath = "/v1/countries",
