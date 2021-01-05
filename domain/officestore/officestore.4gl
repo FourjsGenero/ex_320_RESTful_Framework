@@ -19,6 +19,13 @@
 #+
 #+ Only functions determined to be exposed as a resource should be made PUBLIC.
 #+
+################################################################################
+#+ Change Log
+#+
+#+ GWS-971    - v3.20.11 compiler now throws an error when WSMedia attribute is
+#+            defined on a function attribute
+################################################################################
+
 import com
 import util
 
@@ -408,12 +415,17 @@ end function
 #+ @countryType NONE
 #+
 
+
+# GWS-971 - Moved WSMedia to record attribute
+# public function insertCountry(
+#    newRecord countryType)
+#    attributes(WSPost,
+#        WSMedia = "application/json",
 public function insertCountry(
-    newRecord countryType)
+    newRecord countryType ATTRIBUTES (WSMedia = "application/json"))
     attributes(WSPost,
-        WSMedia = "application/json",
         WSPath = "/v1/countries",
-        WSDescription = "Post test",
+        WSDescription = "Creates an element in the countries resource.",
         WSRetCode = "201:Created",
         #WSScope = "dev.readonly, user.readonly",
         WSThrows = "400:Bad Request,500:Internal Server Error")
